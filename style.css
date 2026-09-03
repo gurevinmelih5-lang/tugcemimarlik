@@ -90,15 +90,19 @@ html {
 }
 
 /* Hero Canvas Scroller Overlay Slide Animations */
+/* Hero Overlay Slides */
 .hero-slide {
+  position: absolute;
   pointer-events: none;
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  visibility: hidden;
+  transform: translateY(20px);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.5s;
 }
 .hero-slide.active {
-  opacity: 1;
-  transform: translateY(0);
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
   pointer-events: auto;
 }
 
@@ -184,16 +188,40 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile Glassmorphism for Hero Slides */
-@media (max-width: 768px) {
+/* Mobile Framing for Hero Slides */
+@media (max-width: 767px) {
   .hero-slide {
-    padding: 1.25rem 1rem;
-    background: rgba(10, 10, 12, 0.65);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border-radius: 0.5rem;
-    border: 1px solid rgba(197, 160, 89, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    position: absolute !important;
+    left: 1rem !important;
+    right: 1rem !important;
+    bottom: 2rem !important;
+    top: auto !important;
+    max-width: calc(100% - 2rem) !important;
+    margin: 0 auto !important;
+    text-align: left !important;
+    padding: 1rem 1.15rem !important;
+    background: rgba(14, 14, 18, 0.88) !important;
+    backdrop-filter: blur(20px) !important;
+    -webkit-backdrop-filter: blur(20px) !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(197, 160, 89, 0.3) !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8) !important;
+  }
+  .hero-slide h1,
+  .hero-slide h2 {
+    font-size: 1.5rem !important;
+    line-height: 1.15 !important;
+    margin-bottom: 0.4rem !important;
+  }
+  .hero-slide p {
+    font-size: 0.75rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 0.6rem !important;
+    color: #D4D4D8 !important;
+  }
+  .hero-slide a {
+    padding: 0.5rem 1rem !important;
+    font-size: 0.65rem !important;
   }
 }
 
