@@ -188,40 +188,47 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-/* Mobile Framing for Hero Slides */
+/* Mobile Framing for Hero Slides: Pure Floating Editorial Typography */
 @media (max-width: 767px) {
   .hero-slide {
     position: absolute !important;
-    left: 1rem !important;
-    right: 1rem !important;
-    bottom: 2rem !important;
+    left: 1.5rem !important;
+    right: 1.5rem !important;
+    bottom: 4.5rem !important;
     top: auto !important;
-    max-width: calc(100% - 2rem) !important;
-    margin: 0 auto !important;
+    width: auto !important;
+    max-width: 100% !important;
+    margin: 0 !important;
     text-align: left !important;
-    padding: 1rem 1.15rem !important;
-    background: rgba(14, 14, 18, 0.88) !important;
-    backdrop-filter: blur(20px) !important;
-    -webkit-backdrop-filter: blur(20px) !important;
-    border-radius: 6px !important;
-    border: 1px solid rgba(197, 160, 89, 0.3) !important;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8) !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
   }
-  .hero-slide h1,
-  .hero-slide h2 {
-    font-size: 1.5rem !important;
+  .hero-slide h1 {
+    font-size: 2.25rem !important;
     line-height: 1.15 !important;
-    margin-bottom: 0.4rem !important;
+    margin-bottom: 0.75rem !important;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9) !important;
+  }
+  .hero-slide h2 {
+    font-size: 1.85rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 0.5rem !important;
+    text-shadow: 0 4px 24px rgba(0, 0, 0, 0.9) !important;
   }
   .hero-slide p {
-    font-size: 0.75rem !important;
-    line-height: 1.35 !important;
-    margin-bottom: 0.6rem !important;
-    color: #D4D4D8 !important;
+    font-size: 0.85rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
+    color: #E4E4E7 !important;
+    text-shadow: 0 2px 14px rgba(0, 0, 0, 0.9) !important;
+    max-width: 28rem !important;
   }
-  .hero-slide a {
-    padding: 0.5rem 1rem !important;
-    font-size: 0.65rem !important;
+  .hero-slide .pointer-events-auto {
+    margin-top: 0.5rem !important;
   }
 }
 

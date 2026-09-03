@@ -252,77 +252,21 @@ function renderFrame(index) {
   const canvasRatio = canvasWidth / canvasHeight;
   const imgRatio = imgWidth / imgHeight;
 
-  if (canvasWidth < 768 && canvasRatio < 1) {
-    // ========================================================================
-    // MOBILE PORTRAIT: CINEMATIC 16:9 FULL-FIT + AMBIENT LUXURY GLOW
-    // ========================================================================
-    // 1. Deep solid backdrop
-    ctx.fillStyle = '#0A0A0C';
-    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+  let drawWidth, drawHeight, drawX, drawY;
 
-    // 2. Ambient light bleed (soft video reflection in background)
-    const bgScale = canvasHeight / imgHeight;
-    const bgWidth = imgWidth * bgScale;
-    const bgX = (canvasWidth - bgWidth) / 2;
-    ctx.globalAlpha = 0.22;
-    ctx.drawImage(img, bgX, 0, bgWidth, canvasHeight);
-    ctx.globalAlpha = 1.0;
-
-    // Dark gradient over ambient to preserve contrast
-    const grad = ctx.createLinearGradient(0, 0, 0, canvasHeight);
-    grad.addColorStop(0, 'rgba(10, 10, 12, 0.85)');
-    grad.addColorStop(0.35, 'rgba(10, 10, 12, 0.35)');
-    grad.addColorStop(0.65, 'rgba(10, 10, 12, 0.7)');
-    grad.addColorStop(1, 'rgba(10, 10, 12, 0.98)');
-    ctx.fillStyle = grad;
-    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
-
-    // 3. Pristine, 100% complete 16:9 video frame in the optimal viewing area
-    // Reserved space: 70px top navbar, 230px bottom text card
-    const topReserved = 70;
-    const bottomReserved = 230;
-    const availHeight = Math.max(180, canvasHeight - topReserved - bottomReserved);
-
-    let mainWidth = canvasWidth;
-    let mainHeight = canvasWidth / imgRatio;
-
-    if (mainHeight > availHeight) {
-      mainHeight = availHeight;
-      mainWidth = availHeight * imgRatio;
-    }
-
-    const mainX = (canvasWidth - mainWidth) / 2;
-    const mainY = topReserved + (availHeight - mainHeight) / 2;
-
-    // Render sharp video frame without any cropping
-    ctx.drawImage(img, mainX, mainY, mainWidth, mainHeight);
-
-    // Subtle luxury gold border accent
-    ctx.strokeStyle = 'rgba(197, 160, 89, 0.35)';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(mainX, mainY, mainWidth, mainHeight);
-
+  if (canvasRatio > imgRatio) {
+    drawWidth = canvasWidth;
+    drawHeight = canvasWidth / imgRatio;
+    drawX = 0;
+    drawY = (canvasHeight - drawHeight) / 2;
   } else {
-    // ========================================================================
-    // DESKTOP & LANDSCAPE: IMMERSIVE FULL-BLEED COVER
-    // ========================================================================
-    let drawWidth, drawHeight, drawX, drawY;
-
-    if (canvasRatio > imgRatio) {
-      drawWidth = canvasWidth;
-      drawHeight = canvasWidth / imgRatio;
-      drawX = 0;
-      drawY = (canvasHeight - drawHeight) / 2;
-    } else {
-      drawWidth = canvasHeight * imgRatio;
-      drawHeight = canvasHeight;
-      drawX = (canvasWidth - drawWidth) / 2;
-      drawY = 0;
-    }
-
-    ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
+    drawWidth = canvasHeight * imgRatio;
+    drawHeight = canvasHeight;
+    drawX = (canvasWidth - drawWidth) / 2;
+    drawY = 0;
   }
 
+  ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
   currentFrameIndex = index;
   lastDrawnFrameIndex = index;
 }
