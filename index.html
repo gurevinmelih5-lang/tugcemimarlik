@@ -45,7 +45,7 @@
   <!-- CSS File -->
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="bg-[#0A0A0C] text-[#E4E4E7] antialiased selection:bg-[#C5A059] selection:text-black overflow-x-hidden">
+<body class="bg-[#0A0A0C] text-[#E4E4E7] antialiased selection:bg-[#C5A059] selection:text-black">
 
   <!-- PRELOADER LOADER -->
   <div id="loader" class="fixed inset-0 z-[9999] bg-[#0A0A0C] flex flex-col items-center justify-center transition-opacity duration-700">
@@ -149,9 +149,9 @@
     <div id="page-home" class="page-view active w-full">
       
       <!-- HERO CANVAS SCROLL SECTION -->
-      <section id="hero-scroll" class="relative w-full h-[250vh]">
-        <!-- Sticky Canvas Wrapper -->
-        <div class="sticky top-0 left-0 w-full h-screen overflow-hidden flex items-center justify-center bg-black">
+      <section id="hero-scroll" class="relative w-full h-[380vh]">
+        <!-- Sticky Canvas Wrapper (100dvh for iOS/Android address bar stability) -->
+        <div class="sticky top-0 left-0 w-full h-[100dvh] overflow-hidden flex items-center justify-center bg-black">
           
           <!-- HTML5 Canvas for Frame Scrubbing -->
           <canvas id="video-canvas" class="w-full h-full object-cover block"></canvas>

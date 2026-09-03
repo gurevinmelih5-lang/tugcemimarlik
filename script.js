@@ -168,11 +168,12 @@ let currentProgress = 0;
 let lastDrawnFrameIndex = -1;
 
 // ==========================================================================
-// 1. IMAGE PRELOADER ENGINE WITH ASYNC DECODING
+// 1. HIGH-PERFORMANCE PRELOADER (STREAMING & MEMORY-SAFE)
 // ==========================================================================
 function preloadImages() {
   return new Promise((resolve) => {
     let hasResolved = false;
+    const priorityThreshold = Math.min(30, frameCount);
 
     for (let i = 1; i <= frameCount; i++) {
       const img = new Image();
@@ -181,63 +182,70 @@ function preloadImages() {
 
       const onFrameReady = () => {
         loadedCount++;
-        updateProgress();
-      };
+        const percent = Math.floor((loadedCount / frameCount) * 100);
+        if (loaderBar) loaderBar.style.width = `${percent}%`;
+        if (loaderPercent) loaderPercent.textContent = `${percent}%`;
 
-      img.onload = () => {
-        if ('decode' in img) {
-          img.decode().then(onFrameReady).catch(onFrameReady);
-        } else {
-          onFrameReady();
+        // Once initial frames are loaded, let user enter to avoid mobile stall
+        if (loadedCount >= priorityThreshold && !hasResolved) {
+          hasResolved = true;
+          finishLoading();
         }
       };
 
+      img.onload = onFrameReady;
       img.onerror = onFrameReady;
       images.push(img);
     }
 
-    function updateProgress() {
-      const percent = Math.floor((loadedCount / frameCount) * 100);
-      if (loaderBar) loaderBar.style.width = `${percent}%`;
-      if (loaderPercent) loaderPercent.textContent = `${percent}%`;
-
-      if (loadedCount >= frameCount && !hasResolved) {
+    // Safety fallback: ensure loader dismisses within 2.2s on mobile connections
+    setTimeout(() => {
+      if (!hasResolved) {
         hasResolved = true;
-        setTimeout(() => {
-          if (loader) {
-            loader.style.opacity = '0';
-            setTimeout(() => {
-              loader.style.display = 'none';
-            }, 700);
-          }
-          resolve();
-        }, 400);
+        finishLoading();
       }
+    }, 2200);
+
+    function finishLoading() {
+      if (loader) {
+        loader.style.opacity = '0';
+        setTimeout(() => {
+          loader.style.display = 'none';
+        }, 500);
+      }
+      resolve();
     }
   });
 }
 
 // ==========================================================================
-// 2. HIGH-PERFORMANCE CANVAS RENDERER (OBJECT-FIT: COVER)
+// 2. ULTRA-SMOOTH CANVAS RENDERER WITH LERP INTERPOLATION
 // ==========================================================================
+let targetFrameIndex = 0;
+let currentFrameFloat = 0;
+let isRenderLoopActive = false;
+
 function resizeCanvas() {
   if (!canvas) return;
+  // Cap resolution to avoid massive VRAM usage on 3x Retina mobile displays
+  const dpr = Math.min(window.devicePixelRatio || 1, 2);
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
+
   if (ctx) {
     ctx.imageSmoothingEnabled = true;
-    ctx.imageSmoothingQuality = 'medium';
+    ctx.imageSmoothingQuality = window.innerWidth < 768 ? 'low' : 'medium';
   }
   renderFrame(lastDrawnFrameIndex >= 0 ? lastDrawnFrameIndex : 0);
 }
 
 function renderFrame(index) {
-  if (!canvas || !ctx || index < 0 || index >= frameCount || !images[index]) return;
-
+  if (!canvas || !ctx || index < 0 || index >= frameCount) return;
   const img = images[index];
+  if (!img || !img.complete || !img.naturalWidth) return;
+
   const canvasWidth = canvas.width;
   const canvasHeight = canvas.height;
-
   const imgWidth = img.naturalWidth || 1920;
   const imgHeight = img.naturalHeight || 1080;
 
@@ -258,14 +266,33 @@ function renderFrame(index) {
     drawY = 0;
   }
 
-  // Draw directly without clearRect to avoid unnecessary GPU fill-rate overhead
   ctx.drawImage(img, drawX, drawY, drawWidth, drawHeight);
   currentFrameIndex = index;
   lastDrawnFrameIndex = index;
 }
 
+// 60FPS Continuous Smooth Scrub Loop (avoids jank on mobile inertia swipes)
+function startSmoothScrubLoop() {
+  if (isRenderLoopActive) return;
+  isRenderLoopActive = true;
+
+  function scrubStep() {
+    const diff = targetFrameIndex - currentFrameFloat;
+    if (Math.abs(diff) > 0.05) {
+      // Snappy and fluid interpolation coefficient
+      currentFrameFloat += diff * 0.35;
+      const frameToDraw = Math.min(frameCount - 1, Math.max(0, Math.round(currentFrameFloat)));
+      if (frameToDraw !== lastDrawnFrameIndex) {
+        renderFrame(frameToDraw);
+      }
+    }
+    requestAnimationFrame(scrubStep);
+  }
+  requestAnimationFrame(scrubStep);
+}
+
 // ==========================================================================
-// 3. INSTANT DIRECT-RESPONSE CANVAS SCROLL ENGINE
+// 3. RESPONSIVE SCROLL PROGRESS ENGINE
 // ==========================================================================
 let isTicking = false;
 
@@ -274,23 +301,15 @@ function updateHeroScroll() {
   if (!pageHome || pageHome.classList.contains('hidden')) return;
   if (!scrollSection) return;
 
-  const rect = scrollSection.getBoundingClientRect();
-  const scrollStart = window.scrollY + rect.top;
-  const scrollEnd = scrollStart + rect.height - window.innerHeight;
-  const currentScroll = window.scrollY;
+  const scrollTotal = scrollSection.offsetHeight - window.innerHeight;
+  if (scrollTotal <= 0) return;
 
-  let progress = 0;
-  if (currentScroll > scrollStart) {
-    progress = (currentScroll - scrollStart) / (scrollEnd - scrollStart);
-  }
+  const currentScroll = window.scrollY;
+  let progress = currentScroll / scrollTotal;
   progress = Math.max(0, Math.min(1, progress));
 
-  // Determine target frame index directly (1:1 instant response to mouse scroll)
-  const targetFrame = Math.min(frameCount - 1, Math.max(0, Math.floor(progress * frameCount)));
-
-  if (targetFrame !== lastDrawnFrameIndex) {
-    renderFrame(targetFrame);
-  }
+  // Update target frame for smooth interpolation loop
+  targetFrameIndex = Math.min(frameCount - 1, Math.max(0, Math.floor(progress * frameCount)));
 
   // Update Hero Text Overlay Slides
   if (progress >= 0 && progress <= 0.22) {
@@ -323,7 +342,7 @@ function onScroll() {
 
       // Sticky Navbar Effect
       if (navbar) {
-        if (window.scrollY > 50) {
+        if (window.scrollY > 40) {
           navbar.classList.add('scrolled');
         } else {
           navbar.classList.remove('scrolled');
@@ -381,7 +400,7 @@ function navigateToPage(targetPageId, updateHash = true) {
     if (targetPageId === 'home') {
       setTimeout(() => {
         resizeCanvas();
-        updateHeroScrollState();
+        updateHeroScroll();
       }, 50);
     }
 
@@ -817,6 +836,7 @@ window.addEventListener('DOMContentLoaded', () => {
   preloadImages().then(() => {
     resizeCanvas();
     updateHeroScroll();
+    startSmoothScrubLoop();
 
     // Check Initial URL Hash Navigation
     const initialHash = window.location.hash.replace('#', '');
