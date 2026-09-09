@@ -688,6 +688,67 @@ function requestServiceAppointment(serviceTitle, serviceValue) {
   }, 450);
 }
 
+const studioGalleryData = [
+  {
+    src: 'assets/studio/mimar_tugce_polat.jpg',
+    title: 'Mimar Tuğçe POLAT',
+    category: 'Stüdyo & Randevu Masası',
+    desc: 'Tuğçe Mimarlık & Mühendislik kurucu mimarı Tuğçe POLAT, Kemalpaşa Ulucak stüdyosunda mimari konsept, ruhsat ve proje danışmanlığı görüşmelerini yürütmektedir.'
+  },
+  {
+    src: 'assets/studio/ofis_vitrin.jpg',
+    title: 'Stüdyo Cadde Vitrini & Proje Sergisi',
+    category: 'Ofis Cephesi & Vitrin',
+    desc: 'Ulucak Şehit Mustafa Akmansoy Caddesi üzerindeki ofis vitrini; tamamlanan ve projelendirilen seçkin villa ve konut projelerinin dışavurumudur.'
+  },
+  {
+    src: 'assets/studio/mimar_calisma_alani.jpg',
+    title: 'Mimari Tasarım & Projelendirme',
+    category: 'Teknik Çalışma Alanı',
+    desc: 'Statik hesaplar, şantiye baretleri, AutoCAD & Revit mimari yazılımları ile ruhsata esas çizimlerin ve 3D modellemelerin hazırlandığı teknik stüdyo masası.'
+  },
+  {
+    src: 'assets/studio/ofis_tabela.jpg',
+    title: 'Tuğçe Mimarlık & Mühendislik',
+    category: 'Hizmet Binası & Tabela',
+    desc: 'Plan, Proje, Müteahhitlik, Danışmanlık, İç Mimarlık ve Mimari Proje Ruhsatlandırma alanlarında hizmet veren resmi stüdyomuz.'
+  }
+];
+
+function openStudioPhotoModal(index) {
+  const photo = studioGalleryData[index];
+  if (!photo) return;
+  const modal = document.getElementById('project-modal');
+  const content = document.getElementById('modal-content');
+  if (!modal || !content) return;
+
+  content.innerHTML = `
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="lg:col-span-7 aspect-[4/5] sm:aspect-[4/3] bg-black rounded-sm overflow-hidden flex items-center justify-center border border-white/10">
+        <img src="${photo.src}" alt="${photo.title}" class="w-full h-full object-contain" />
+      </div>
+      <div class="lg:col-span-5 flex flex-col justify-between">
+        <div>
+          <span class="text-xs uppercase tracking-[0.3em] text-[#C5A059] font-medium block mb-2">${photo.category}</span>
+          <h2 class="text-2xl md:text-3xl font-serif text-white mb-4">${photo.title}</h2>
+          <p class="text-xs md:text-sm text-[#D4D4D8] leading-relaxed mb-6 font-light">${photo.desc}</p>
+          <div class="p-4 bg-[#141419] rounded-sm border border-white/5 text-xs text-[#A1A1AA] space-y-2 font-mono">
+            <p><i class="fa-solid fa-location-dot text-[#C5A059] mr-2"></i> Ulucak, Kemalpaşa / İzmir</p>
+            <p><i class="fa-solid fa-phone text-[#C5A059] mr-2"></i> 0 538 371 84 32</p>
+          </div>
+        </div>
+        <div class="mt-6 pt-6 border-t border-white/10">
+          <a href="#contact" onclick="closeProjectModal()" class="w-full py-3.5 px-5 bg-[#C5A059] hover:bg-[#D4AF37] text-black text-xs uppercase tracking-[0.2em] font-semibold rounded-sm transition-all text-center block">
+            Stüdyoda Randevu Al
+          </a>
+        </div>
+      </div>
+    </div>
+  `;
+  modal.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
 function closeProjectModal() {
   const modal = document.getElementById('project-modal');
   if (modal) {
