@@ -76,7 +76,7 @@ html {
 .page-view.active {
   display: block !important;
   opacity: 1;
-  transform: translateY(0);
+  transform: none !important;
 }
 
 /* Page Transition Curtain Wipe */
@@ -85,6 +85,23 @@ html {
 }
 #curtain.animating .curtain-panel:nth-child(2) {
   transform: translateY(0%);
+}
+
+/* Hero Sticky Container & Canvas Architecture */
+.hero-sticky-container {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  z-index: 10;
 }
 
 /* Hero Canvas Scroller Overlay Slide Animations */
@@ -111,6 +128,7 @@ html {
   object-fit: cover;
   pointer-events: none;
   touch-action: pan-y;
+  display: block;
 }
 
 /* Project Cards Hover Glow Effect */
@@ -174,16 +192,16 @@ html {
 }
 
 html {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100vw;
 }
 
 /* GPU hardware acceleration for smooth mobile transitions */
-.page-view, .hero-slide, .project-card, .curtain-panel {
+.hero-slide, .project-card, .curtain-panel {
   will-change: transform, opacity;
   transform: translateZ(0);
 }

@@ -156,7 +156,12 @@ function preloadImages() {
         if (loaderBar) loaderBar.style.width = `${percent}%`;
         if (loaderPercent) loaderPercent.textContent = `${percent}%`;
 
-        // Once initial frames are loaded, let user enter to avoid mobile stall
+        // Render first available frame immediately
+        if (lastDrawnFrameIndex < 0 && i === 1) {
+          renderFrame(0);
+        }
+
+        // Once initial priority frames are loaded, reveal page smoothly
         if (loadedCount >= priorityThreshold && !hasResolved) {
           hasResolved = true;
           finishLoading();
@@ -168,7 +173,7 @@ function preloadImages() {
       images.push(img);
     }
 
-    // Safety fallback: ensure loader dismisses within 2.2s on mobile connections
+    // Safety fallback: ensure loader dismisses within 2.2s
     setTimeout(() => {
       if (!hasResolved) {
         hasResolved = true;
@@ -189,7 +194,7 @@ function preloadImages() {
 }
 
 // ==========================================================================
-// 2. ULTRA-SMOOTH CANVAS RENDERER WITH LERP INTERPOLATION
+// 2. ULTRA-SMOOTH CANVAS RENDERER WITH RESILIENT FRAME BUFFER
 // ==========================================================================
 let targetFrameIndex = 0;
 let currentFrameFloat = 0;
@@ -197,10 +202,9 @@ let isRenderLoopActive = false;
 
 function resizeCanvas() {
   if (!canvas) return;
-  // Cap resolution to avoid massive VRAM usage on 3x Retina mobile displays
-  const dpr = Math.min(window.devicePixelRatio || 1, 2);
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  const parent = canvas.parentElement;
+  canvas.width = parent ? parent.clientWidth : window.innerWidth;
+  canvas.height = parent ? parent.clientHeight : window.innerHeight;
 
   if (ctx) {
     ctx.imageSmoothingEnabled = true;
@@ -209,13 +213,33 @@ function resizeCanvas() {
   renderFrame(lastDrawnFrameIndex >= 0 ? lastDrawnFrameIndex : 0);
 }
 
+// Fallback search to find nearest loaded frame if target is still downloading
+function getBestAvailableFrame(index) {
+  if (images[index] && images[index].complete && images[index].naturalWidth) {
+    return images[index];
+  }
+  for (let offset = 1; offset < frameCount; offset++) {
+    const prev = index - offset;
+    if (prev >= 0 && images[prev] && images[prev].complete && images[prev].naturalWidth) {
+      return images[prev];
+    }
+    const next = index + offset;
+    if (next < frameCount && images[next] && images[next].complete && images[next].naturalWidth) {
+      return images[next];
+    }
+  }
+  return null;
+}
+
 function renderFrame(index) {
   if (!canvas || !ctx || index < 0 || index >= frameCount) return;
-  const img = images[index];
-  if (!img || !img.complete || !img.naturalWidth) return;
+  const img = getBestAvailableFrame(index);
+  if (!img) return;
 
   const canvasWidth = canvas.width;
   const canvasHeight = canvas.height;
+  if (!canvasWidth || !canvasHeight) return;
+
   const imgWidth = img.naturalWidth || 1920;
   const imgHeight = img.naturalHeight || 1080;
 
@@ -241,20 +265,21 @@ function renderFrame(index) {
   lastDrawnFrameIndex = index;
 }
 
-// 60FPS Continuous Smooth Scrub Loop (avoids jank on mobile inertia swipes)
+// 60FPS Continuous Smooth Scrub Loop (fluid lerp without skipping)
 function startSmoothScrubLoop() {
   if (isRenderLoopActive) return;
   isRenderLoopActive = true;
 
   function scrubStep() {
     const diff = targetFrameIndex - currentFrameFloat;
-    if (Math.abs(diff) > 0.05) {
-      // Snappy and fluid interpolation coefficient
+    if (Math.abs(diff) > 0.02) {
       currentFrameFloat += diff * 0.35;
-      const frameToDraw = Math.min(frameCount - 1, Math.max(0, Math.round(currentFrameFloat)));
-      if (frameToDraw !== lastDrawnFrameIndex) {
-        renderFrame(frameToDraw);
-      }
+    } else {
+      currentFrameFloat = targetFrameIndex;
+    }
+    const frameToDraw = Math.min(frameCount - 1, Math.max(0, Math.round(currentFrameFloat)));
+    if (frameToDraw !== lastDrawnFrameIndex) {
+      renderFrame(frameToDraw);
     }
     requestAnimationFrame(scrubStep);
   }
@@ -262,7 +287,7 @@ function startSmoothScrubLoop() {
 }
 
 // ==========================================================================
-// 3. RESPONSIVE SCROLL PROGRESS ENGINE
+// 3. RESPONSIVE SCROLL PROGRESS ENGINE (CONTAINER-INDEPENDENT)
 // ==========================================================================
 let isTicking = false;
 
@@ -271,15 +296,16 @@ function updateHeroScroll() {
   if (!pageHome || pageHome.classList.contains('hidden')) return;
   if (!scrollSection) return;
 
+  const rect = scrollSection.getBoundingClientRect();
   const scrollTotal = scrollSection.offsetHeight - window.innerHeight;
   if (scrollTotal <= 0) return;
 
-  const currentScroll = window.scrollY;
-  let progress = currentScroll / scrollTotal;
-  progress = Math.max(0, Math.min(1, progress));
+  // Viewport-relative measurement: works on every device, mobile, touch, or desktop
+  const scrolled = Math.max(0, Math.min(scrollTotal, -rect.top));
+  const progress = scrolled / scrollTotal;
 
   // Update target frame for smooth interpolation loop
-  targetFrameIndex = Math.min(frameCount - 1, Math.max(0, Math.floor(progress * frameCount)));
+  targetFrameIndex = Math.min(frameCount - 1, Math.max(0, Math.round(progress * (frameCount - 1))));
 
   // Update Hero Text Overlay Slides
   if (progress >= 0 && progress <= 0.22) {
@@ -879,7 +905,7 @@ function handleResponsiveResize() {
   }
 }
 
-window.addEventListener('DOMContentLoaded', () => {
+function init() {
   // Preload Images & Init Systems
   preloadImages().then(() => {
     resizeCanvas();
@@ -898,6 +924,13 @@ window.addEventListener('DOMContentLoaded', () => {
   setupModalTouchGestures();
 
   window.addEventListener('scroll', onScroll, { passive: true });
+  document.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', handleResponsiveResize, { passive: true });
   window.addEventListener('orientationchange', resizeCanvas, { passive: true });
-});
+}
+
+if (document.readyState === 'loading') {
+  window.addEventListener('DOMContentLoaded', init);
+} else {
+  init();
+}
