@@ -54,31 +54,6 @@ const projectData = {
       { label: 'Enerji & Yalıtım', value: 'Yüksek Performanslı Isı Yalıtımı ve Doğal Havalandırma' }
     ]
   },
-  'proje2': {
-    id: 'proje2',
-    title: 'Modern Kent Rezidansı',
-    subtitle: '5 Katlı Çağdaş Kentsel Apartman Mimarisi',
-    category: 'Konut & Villa',
-    filterCategory: 'residential',
-    location: 'İzmir, Kemalpaşa',
-    year: '2024',
-    status: 'Ruhsat & Projelendirme',
-    cover: 'assets/projects/proje2/img_3.jpg',
-    images: [
-      'assets/projects/proje2/img_3.jpg',
-      'assets/projects/proje2/img_1.jpg',
-      'assets/projects/proje2/img_2.jpg',
-      'assets/projects/proje2/img_4.jpg'
-    ],
-    description: 'Yalın prizmatik kütle dengesi, dikey ahşap lamel detayları ve cam balkonlarıyla kentsel dokuya değer katan 5 katlı çağdaş konut binası.',
-    narrative: 'Kentsel yaşamın temposuna ferah ve aydınlık yaşam alanları sunan proje; zemin kattaki fonksiyonel otopark çözümü, geniş pencere açıklıkları ve cepheye ritim katan gölgelendirme elemanlarıyla estetik ve işlevselliği harmanlar.',
-    details: [
-      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
-      { label: 'Kat Düzeni', value: 'Zemin Otopark + 4 Konut Katı' },
-      { label: 'Daire Tipleri', value: '2+1 ve 3+1 Ferah Konfor Daireleri' },
-      { label: 'Cephe Karakteri', value: 'Ahşap Lameller, Kompakt Panel ve Şeffaf Cam Korkuluk' }
-    ]
-  },
   'proje3': {
     id: 'proje3',
     title: 'Murat Bey İnşaat Prestij Kompleksi',
@@ -125,7 +100,7 @@ const projectData = {
     narrative: 'Açık hava yaşamını mahremiyet ve lüksle buluşturan villada; salondan havuz terasına kesintisiz geçiş sağlayan devasa sürme camlar, üst kattaki panoramik balkon ve doğal peyzajla çevrili bahçe kurgusu öne çıkar.',
     details: [
       { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
-      { label: 'Açık Alanlar', value: '40 m² Yüzme Havuzu, Güneşlenme Terası, Özel Bahçe' },
+      { label: 'Açık Alanlar', value: 'Özel Yüzme Havuzu, Güneşlenme Terası, Geniş Bahçe' },
       { label: 'Kapalı Alanlar', value: 'Entegre Garaj, 4+1 Geniş Yaşam Alanı, Kış Bahçesi' },
       { label: 'Enerji Sınıfı', value: 'Enerji Kimlik Belgesi A Sınıfı Standartları' }
     ]
@@ -527,9 +502,6 @@ function openProjectModal(projectId) {
         <span class="text-xs font-mono text-[#A1A1AA] block mt-1">${data.subtitle} // ${data.location} // ${data.year}</span>
       </div>
       <div class="hidden sm:flex items-center gap-3">
-        <span class="text-[11px] font-mono text-[#C5A059] px-3 py-1.5 bg-[#1A1A22] border border-[#C5A059]/30 rounded-sm">
-          <i class="fa-solid fa-vector-square mr-1.5 text-[10px]"></i>${data.area}
-        </span>
         <span class="text-[11px] font-mono text-[#A1A1AA] px-3 py-1.5 bg-[#1A1A22] border border-white/10 rounded-sm">
           <i class="fa-solid fa-circle-check mr-1.5 text-[#C5A059] text-[10px]"></i>${data.status}
         </span>
