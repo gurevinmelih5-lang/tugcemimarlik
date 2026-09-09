@@ -33,7 +33,6 @@ const projectData = {
     category: 'Konut & Villa',
     filterCategory: 'residential',
     location: 'İzmir, Kemalpaşa',
-    area: '185 m²',
     year: '2024',
     status: 'Tamamlandı / Uygulama',
     cover: 'assets/projects/proje1/img_2.jpg',
@@ -62,7 +61,6 @@ const projectData = {
     category: 'Konut & Villa',
     filterCategory: 'residential',
     location: 'İzmir, Kemalpaşa',
-    area: '1.850 m²',
     year: '2024',
     status: 'Ruhsat & Projelendirme',
     cover: 'assets/projects/proje2/img_3.jpg',
@@ -88,7 +86,6 @@ const projectData = {
     category: 'Ticari & Ofis',
     filterCategory: 'commercial',
     location: 'İzmir, Kemalpaşa',
-    area: '3.200 m²',
     year: '2024',
     status: 'Tamamlandı',
     cover: 'assets/projects/proje3/img_1.jpg',
@@ -113,7 +110,6 @@ const projectData = {
     category: 'Konut & Villa',
     filterCategory: 'residential',
     location: 'İzmir, Ulucak',
-    area: '420 m²',
     year: '2024',
     status: 'İnşaat & Uygulama',
     cover: 'assets/projects/proje4/img_2.jpg',
@@ -141,7 +137,6 @@ const projectData = {
     category: 'Konut & Villa',
     filterCategory: 'residential',
     location: 'İzmir, Kemalpaşa',
-    area: '2.100 m²',
     year: '2024',
     status: 'Tamamlandı',
     cover: 'assets/projects/proje5/img_1.jpg',
@@ -668,6 +663,26 @@ function requestProjectAppointment(projectTitle) {
     const textarea = document.getElementById('form-message');
     if (textarea) {
       textarea.value = `Sayın Mimar Tuğçe POLAT, "${projectTitle}" projenize benzer bir mimari tasarım ve uygulama süreci için randevu talep ediyorum.`;
+      textarea.focus();
+    }
+  }, 450);
+}
+
+function requestServiceAppointment(serviceTitle, serviceValue) {
+  navigateToPage('contact');
+  setTimeout(() => {
+    const select = document.getElementById('form-service');
+    if (select && serviceValue) {
+      for (let i = 0; i < select.options.length; i++) {
+        if (select.options[i].value === serviceValue || select.options[i].text.includes(serviceTitle)) {
+          select.selectedIndex = i;
+          break;
+        }
+      }
+    }
+    const textarea = document.getElementById('form-message');
+    if (textarea) {
+      textarea.value = `Sayın Mimar Tuğçe POLAT, "${serviceTitle}" hizmetiniz ile ilgili detaylı bilgi ve randevu talep ediyorum.`;
       textarea.focus();
     }
   }, 450);

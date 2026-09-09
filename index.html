@@ -6,18 +6,27 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), payment=()" />
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https:; media-src 'self' blob:; frame-src 'self'; object-src 'none';" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: blob: https:; connect-src 'self' https:; media-src 'self'; frame-ancestors 'self'; object-src 'none'; base-uri 'self';" />
   <title>Tuğçe Mimarlık | Lüks & Minimalist Mimari Tasarım Stüdyosu</title>
   <meta name="description" content="Tuğçe Mimarlık; modern konut, ticari ve iç mimari alanlarında zamansız, heykelimsi ve sürdürülebilir mimari projeler tasarlayan premium mimarlık stüdyosudur." />
   <link rel="icon" type="image/png" href="assets/logo.png" />
   
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Critical Hero Image Preloads for Instant Mobile LCP -->
+  <link rel="preload" as="image" href="frames/frame_001.jpg" fetchpriority="high" />
+  <link rel="preload" as="image" href="assets/logo.png" />
+
+  <!-- Resource Preconnects -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.tailwindcss.com" crossorigin />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   
-  <!-- FontAwesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Google Fonts with display=swap -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+  
+  <!-- Non-blocking FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" /></noscript>
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -287,7 +296,7 @@
             <!-- Project Card 1: Havuzlu Müstakil Villa (proje4) -->
             <div class="project-card group relative bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje4')">
               <div class="aspect-[4/3] overflow-hidden relative bg-[#181820]">
-                <img src="assets/projects/proje4/img_2.jpg" alt="Havuzlu Müstakil Lüks Villa" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                <img src="assets/projects/proje4/img_2.jpg" alt="Havuzlu Müstakil Lüks Villa" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                 <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">
                   Lüks Villa
                 </div>
@@ -311,7 +320,7 @@
             <!-- Project Card 2: A-Frame Kır Evi (proje1) -->
             <div class="project-card group relative bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje1')">
               <div class="aspect-[4/3] overflow-hidden relative bg-[#181820]">
-                <img src="assets/projects/proje1/img_2.jpg" alt="A-Frame Doğa & Kır Konutu" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                <img src="assets/projects/proje1/img_2.jpg" alt="A-Frame Doğa & Kır Konutu" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                 <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">
                   Kır &amp; Dağ Konutu
                 </div>
@@ -335,7 +344,7 @@
             <!-- Project Card 3: Murat Bey İnşaat (proje3) -->
             <div class="project-card group relative bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje3')">
               <div class="aspect-[4/3] overflow-hidden relative bg-[#181820]">
-                <img src="assets/projects/proje3/img_1.jpg" alt="Murat Bey İnşaat Prestij Kompleksi" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+                <img src="assets/projects/proje3/img_1.jpg" alt="Murat Bey İnşaat Prestij Kompleksi" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
                 <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">
                   Ticari &amp; Konut
                 </div>
@@ -405,7 +414,7 @@
         <!-- Item 1: Havuzlu Müstakil Villa (proje4) -->
         <div class="portfolio-item residential group bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje4')">
           <div class="aspect-[4/3] bg-[#181820] relative overflow-hidden">
-            <img src="assets/projects/proje4/img_2.jpg" alt="Havuzlu Müstakil Lüks Villa" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+            <img src="assets/projects/proje4/img_2.jpg" alt="Havuzlu Müstakil Lüks Villa" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">Lüks Villa</div>
             <div class="absolute bottom-4 right-4 bg-black/75 backdrop-blur-md px-2.5 py-1 text-[10px] text-white font-mono rounded-sm border border-white/10 flex items-center gap-1.5">
               <i class="fa-regular fa-images text-[#C5A059]"></i> 6 Görsel
@@ -425,7 +434,7 @@
         <!-- Item 2: A-Frame Doğa Evi (proje1) -->
         <div class="portfolio-item residential group bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje1')">
           <div class="aspect-[4/3] bg-[#181820] relative overflow-hidden">
-            <img src="assets/projects/proje1/img_2.jpg" alt="A-Frame Doğa & Kır Konutu" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+            <img src="assets/projects/proje1/img_2.jpg" alt="A-Frame Doğa & Kır Konutu" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">Kır &amp; Dağ Konutu</div>
             <div class="absolute bottom-4 right-4 bg-black/75 backdrop-blur-md px-2.5 py-1 text-[10px] text-white font-mono rounded-sm border border-white/10 flex items-center gap-1.5">
               <i class="fa-regular fa-images text-[#C5A059]"></i> 7 Görsel
@@ -445,7 +454,7 @@
         <!-- Item 3: Murat Bey İnşaat (proje3) -->
         <div class="portfolio-item commercial group bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje3')">
           <div class="aspect-[4/3] bg-[#181820] relative overflow-hidden">
-            <img src="assets/projects/proje3/img_1.jpg" alt="Murat Bey İnşaat Prestij Kompleksi" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+            <img src="assets/projects/proje3/img_1.jpg" alt="Murat Bey İnşaat Prestij Kompleksi" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">Ticari &amp; Konut</div>
             <div class="absolute bottom-4 right-4 bg-black/75 backdrop-blur-md px-2.5 py-1 text-[10px] text-white font-mono rounded-sm border border-white/10 flex items-center gap-1.5">
               <i class="fa-regular fa-images text-[#C5A059]"></i> 3 Görsel
@@ -465,7 +474,7 @@
         <!-- Item 4: Modern Kent Rezidansı (proje2) -->
         <div class="portfolio-item residential group bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje2')">
           <div class="aspect-[4/3] bg-[#181820] relative overflow-hidden">
-            <img src="assets/projects/proje2/img_3.jpg" alt="Modern Kent Rezidansı" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+            <img src="assets/projects/proje2/img_3.jpg" alt="Modern Kent Rezidansı" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">Kentsel Konut</div>
             <div class="absolute bottom-4 right-4 bg-black/75 backdrop-blur-md px-2.5 py-1 text-[10px] text-white font-mono rounded-sm border border-white/10 flex items-center gap-1.5">
               <i class="fa-regular fa-images text-[#C5A059]"></i> 4 Görsel
@@ -485,7 +494,7 @@
         <!-- Item 5: Doğal Taş Cepheli Butik Rezidans (proje5) -->
         <div class="portfolio-item residential group bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 rounded-sm overflow-hidden cursor-pointer transition-all duration-500" onclick="openProjectModal('proje5')">
           <div class="aspect-[4/3] bg-[#181820] relative overflow-hidden">
-            <img src="assets/projects/proje5/img_1.jpg" alt="Doğal Taş Cepheli Butik Rezidans" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
+            <img src="assets/projects/proje5/img_1.jpg" alt="Doğal Taş Cepheli Butik Rezidans" loading="lazy" decoding="async" width="600" height="450" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700" />
             <div class="absolute top-4 left-4 bg-black/75 backdrop-blur-md px-3 py-1 text-[10px] uppercase tracking-widest text-[#C5A059] border border-[#C5A059]/30 font-semibold rounded-sm">Butik Rezidans</div>
             <div class="absolute bottom-4 right-4 bg-black/75 backdrop-blur-md px-2.5 py-1 text-[10px] text-white font-mono rounded-sm border border-white/10 flex items-center gap-1.5">
               <i class="fa-regular fa-images text-[#C5A059]"></i> 4 Görsel
@@ -637,71 +646,220 @@
     <div id="page-services" class="page-view hidden w-full py-32 px-6 lg:px-16 max-w-7xl mx-auto">
       
       <div class="mb-16">
-        <span class="text-xs uppercase tracking-[0.35em] text-[#C5A059] font-medium block mb-2">HİZMETLERİMİZ</span>
+        <div class="flex items-center gap-3 mb-3">
+          <span class="text-xs uppercase tracking-[0.35em] text-[#C5A059] font-medium">HİZMETLERİMİZ &amp; UZMANLIKLARIMIZ</span>
+          <div class="h-[1px] w-12 bg-[#C5A059]/40"></div>
+        </div>
         <h1 class="text-4xl md:text-6xl font-serif text-white mb-6">Mimari Disiplinler</h1>
         <p class="text-sm md:text-base text-[#A1A1AA] max-w-2xl leading-relaxed">
-          Konsept fikirden anahtar teslim şantiye uygulamasına kadar tüm süreçte yüksek hassasiyetle hizmet veriyoruz.
+          Arsa ölçümü ve harita mühendisliğinden 3D görselleştirmeye, mimari ruhsatlandırmadan anahtar teslim iç mekan tadilatına kadar tüm teknik süreçleri tek çatı altında yürütüyoruz.
         </p>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
         
-        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group">
-          <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl mb-6 group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
-            <i class="fa-solid fa-compass-drafting"></i>
+        <!-- Service 01: Mimari Proje Ruhsatlandırma -->
+        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                <i class="fa-solid fa-file-signature"></i>
+              </div>
+              <span class="font-mono text-xs text-[#C5A059]/60 font-semibold tracking-widest">01 / RUHSAT</span>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-3 group-hover:text-[#C5A059] transition-colors">01. Mimari Proje Ruhsatlandırma</h3>
+            <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+              İlgili belediyeler ve yapı denetim mevzuatlarına tam uyumlu mimari avam, kesin ve ruhsat projelerinin hazırlanması; resmi onay ve ruhsatlandırma süreçlerinin A'dan Z'ye koordinasyonu.
+            </p>
+            <ul class="text-xs text-[#E4E4E7] space-y-2.5 font-mono mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Belediye Ruhsat Dosyası &amp; İmar Durumu Yönetimi</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Statik, Mekanik &amp; Elektrik Proje Entegrasyonu</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Yapı Denetim &amp; Resmi Kurum Onay Takibi</li>
+            </ul>
           </div>
-          <h3 class="text-2xl font-serif text-white mb-3">01. Mimari Tasarım &amp; Projelendirme</h3>
-          <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
-            Arsa analizinden başlayarak avam proje, ruhsat projesi ve uygulama detay çizimlerine kadar eksiksiz mimari süreç yönetimi.
-          </p>
-          <ul class="text-xs text-[#E4E4E7] space-y-2 font-mono">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Konsept &amp; Kütle Etütleri</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> 3D Görselleştirme &amp; Animasyon</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Uygulama Çizimleri &amp; Sistem Detayları</li>
-          </ul>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-[10px] uppercase font-mono tracking-wider text-[#71717A]">Kemalpaşa &amp; İzmir Geneli</span>
+            <button onclick="requestServiceAppointment('Mimari Proje Ruhsatlandırma', 'ruhsat')" class="inline-flex items-center gap-1.5 text-xs text-[#C5A059] hover:text-white transition-colors cursor-pointer font-medium">
+              <span>Randevu Al</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
         </div>
 
-        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group">
-          <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl mb-6 group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
-            <i class="fa-solid fa-couch"></i>
+        <!-- Service 02: Mimarlık Ve İç Mimarlık Hizmetleri -->
+        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                <i class="fa-solid fa-compass-drafting"></i>
+              </div>
+              <span class="font-mono text-xs text-[#C5A059]/60 font-semibold tracking-widest">02 / MİMARLIK</span>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-3 group-hover:text-[#C5A059] transition-colors">02. Mimarlık ve İç Mimarlık Hizmetleri</h3>
+            <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+              Konut, villa, ticari ve karma projelerde kütle etüdünden detay çizimlerine kadar fonksiyonel, heykelsi ve doğayla bütünleşen çağdaş mimari konseptler.
+            </p>
+            <ul class="text-xs text-[#E4E4E7] space-y-2.5 font-mono mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Müstakil Villa, A-Frame &amp; Konut Mimarisi</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Ticari Plaza, Mağaza &amp; Rezidans Tasarımı</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Uygulama Çizimleri &amp; Detay Sistem Çözümleri</li>
+            </ul>
           </div>
-          <h3 class="text-2xl font-serif text-white mb-3">02. İç Mimari &amp; Özel Mobilya</h3>
-          <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
-            Mekanın ruhuna uygun özel aydınlatma, mermer işçilikleri ve mekana özel üretim sabitleme mobilyaları kurgusu.
-          </p>
-          <ul class="text-xs text-[#E4E4E7] space-y-2 font-mono">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Malzeme Seçimi &amp; Moodboard</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Özel Mobilya &amp; Detay Üretimi</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Anahtar Teslim İç Mekan Uygulama</li>
-          </ul>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-[10px] uppercase font-mono tracking-wider text-[#71717A]">Özgün Mimari Çözümler</span>
+            <button onclick="requestServiceAppointment('Mimarlık ve İç Mimarlık Hizmetleri', 'mimarlik-ic-mimarlik')" class="inline-flex items-center gap-1.5 text-xs text-[#C5A059] hover:text-white transition-colors cursor-pointer font-medium">
+              <span>Randevu Al</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
         </div>
 
-        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group">
-          <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl mb-6 group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
-            <i class="fa-solid fa-city"></i>
+        <!-- Service 03: İç Mekan Tasarımları Ve Tadilat Projeleri -->
+        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                <i class="fa-solid fa-couch"></i>
+              </div>
+              <span class="font-mono text-xs text-[#C5A059]/60 font-semibold tracking-widest">03 / İÇ MEKAN</span>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-3 group-hover:text-[#C5A059] transition-colors">03. İç Mekan Tasarımları ve Tadilat Projeleri</h3>
+            <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+              Mevcut mekanların çağdaş yaşam standartlarına uygun olarak baştan aşağı yenilenmesi; anahtar teslim tadilat, kırma-bölme planları, özel mobilya üretimi ve malzeme koordinasyonu.
+            </p>
+            <ul class="text-xs text-[#E4E4E7] space-y-2.5 font-mono mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Komple Daire, Villa &amp; Ofis Renovasyonu</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Özel Üretim Sabit Mobilya &amp; Mutfak-Banyo Tasarımı</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Anahtar Teslim Şantiye &amp; İmalat Yönetimi</li>
+            </ul>
           </div>
-          <h3 class="text-2xl font-serif text-white mb-3">03. Kentsel Tasarım &amp; Masterplan</h3>
-          <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
-            Geniş ölçekli arazi ve yerleşkelerde peyzaj, iklim ve ulaşım sirkülasyonunu gözeten sürdürülebilir kent tasarımları.
-          </p>
-          <ul class="text-xs text-[#E4E4E7] space-y-2 font-mono">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Yerleşke Masterplan Tasarımı</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Ekolojik Peyzaj Entegrasyonu</li>
-          </ul>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-[10px] uppercase font-mono tracking-wider text-[#71717A]">Anahtar Teslim Uygulama</span>
+            <button onclick="requestServiceAppointment('İç Mekan Tasarımları ve Tadilat Projeleri', 'ic-mekan-tadilat')" class="inline-flex items-center gap-1.5 text-xs text-[#C5A059] hover:text-white transition-colors cursor-pointer font-medium">
+              <span>Randevu Al</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
         </div>
 
-        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group">
-          <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl mb-6 group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
-            <i class="fa-solid fa-landmark"></i>
+        <!-- Service 04: 3 Boyutlu Görselleştirme Uzmanlığı -->
+        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                <i class="fa-solid fa-cube"></i>
+              </div>
+              <span class="font-mono text-xs text-[#C5A059]/60 font-semibold tracking-widest">04 / 3D RENDER</span>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-3 group-hover:text-[#C5A059] transition-colors">04. 3 Boyutlu Görselleştirme Uzmanlığı</h3>
+            <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+              Tasarımların inşa sürecine girmeden önce en ince detayına kadar canlandırıldığı yüksek çözünürlüklü fotogerçekçi 3D renderlar, gece/gündüz ışık simülasyonları ve animasyonlar.
+            </p>
+            <ul class="text-xs text-[#E4E4E7] space-y-2.5 font-mono mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Fotogerçekçi Dış Cephe &amp; İç Mekan Renderları</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Peyzaj, Malzeme &amp; Gün Işığı Senaryoları</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Tanıtım &amp; Satış Odaklı Sinematik 3D Turlar</li>
+            </ul>
           </div>
-          <h3 class="text-2xl font-serif text-white mb-3">04. Restorasyon &amp; Yeniden Kullanım</h3>
-          <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
-            Tarihi tescilli yapıların geçmiş kimliğini koruyarak çağdaş konfor standartlarına kavuşturulması projelendirmesi.
-          </p>
-          <ul class="text-xs text-[#E4E4E7] space-y-2 font-mono">
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Rölöve, Restitüsyon &amp; Restorasyon</li>
-            <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Anıtlar Kurulu Onay Süreçleri</li>
-          </ul>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-[10px] uppercase font-mono tracking-wider text-[#71717A]">Fotogerçekçi Kalite</span>
+            <button onclick="requestServiceAppointment('3 Boyutlu Görselleştirme Uzmanlığı', '3d-gorsellestirme')" class="inline-flex items-center gap-1.5 text-xs text-[#C5A059] hover:text-white transition-colors cursor-pointer font-medium">
+              <span>Randevu Al</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 05: Harita Mühendisliği Ve Arazi Ölçüm Hizmeti -->
+        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                <i class="fa-solid fa-location-crosshairs"></i>
+              </div>
+              <span class="font-mono text-xs text-[#C5A059]/60 font-semibold tracking-widest">05 / HARİTA</span>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-3 group-hover:text-[#C5A059] transition-colors">05. Harita Mühendisliği ve Arazi Ölçüm Hizmeti</h3>
+            <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+              Arsa ve tarla sınırlarının milimetrik hassasiyette tespiti, GPS ve total station cihazlarıyla aplikasyon, parselasyon, ifraz ve tevhit gibi kadastral mühendislik hizmetleri.
+            </p>
+            <ul class="text-xs text-[#E4E4E7] space-y-2.5 font-mono mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Arsa Sınır Tespiti &amp; Arazi Aplikasyonu</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Total Station &amp; GNSS GPS Ölçüm Cihazları</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> İfraz, Tevhit &amp; Parselasyon Mühendisliği</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-[10px] uppercase font-mono tracking-wider text-[#71717A]">Milimetrik Hassasiyet</span>
+            <button onclick="requestServiceAppointment('Harita Mühendisliği ve Arazi Ölçüm Hizmeti', 'harita-muhendisligi')" class="inline-flex items-center gap-1.5 text-xs text-[#C5A059] hover:text-white transition-colors cursor-pointer font-medium">
+              <span>Randevu Al</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 06: Plankote Ve Halihazır Harita Yapımı -->
+        <div class="bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group flex flex-col justify-between hover:-translate-y-1">
+          <div>
+            <div class="flex items-center justify-between mb-6">
+              <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                <i class="fa-solid fa-map-location-dot"></i>
+              </div>
+              <span class="font-mono text-xs text-[#C5A059]/60 font-semibold tracking-widest">06 / PLANKOTE</span>
+            </div>
+            <h3 class="text-2xl font-serif text-white mb-3 group-hover:text-[#C5A059] transition-colors">06. Plankote ve Halihazır Harita Yapımı</h3>
+            <p class="text-xs text-[#A1A1AA] leading-relaxed mb-6">
+              Mimari projenin temelini oluşturan detaylı arazi kotlarının çıkarılması, eğim profillerinin belirlenmesi ve ilgili belediye/kadastro birimlerince onaylı halihazır harita üretimi.
+            </p>
+            <ul class="text-xs text-[#E4E4E7] space-y-2.5 font-mono mb-6">
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Mimari Ruhsata Esas Kotlu Plankote Çıkarımı</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Belediye &amp; İdare Onaylı Halihazır Harita</li>
+              <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Kazı, Dolgu &amp; Hafriyat Kübaj Hesaplamaları</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+            <span class="text-[10px] uppercase font-mono tracking-wider text-[#71717A]">Resmi Onaylı Haritalar</span>
+            <button onclick="requestServiceAppointment('Plankote ve Halihazır Harita Yapımı', 'plankote-halihazir')" class="inline-flex items-center gap-1.5 text-xs text-[#C5A059] hover:text-white transition-colors cursor-pointer font-medium">
+              <span>Randevu Al</span>
+              <i class="fa-solid fa-arrow-right text-[10px]"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Service 07: İmar Affı Ve Zemin Tespit Tutanağı -->
+        <div class="md:col-span-2 bg-[#121215] border border-white/5 hover:border-[#C5A059]/40 p-8 rounded-sm transition-all duration-300 group hover:-translate-y-1">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            <div>
+              <div class="flex items-center justify-between mb-6">
+                <div class="w-12 h-12 rounded-sm bg-[#1A1A22] border border-[#C5A059]/30 flex items-center justify-center text-[#C5A059] text-xl group-hover:bg-[#C5A059] group-hover:text-black transition-colors">
+                  <i class="fa-solid fa-clipboard-check"></i>
+                </div>
+                <span class="font-mono text-xs text-[#C5A059]/60 font-semibold tracking-widest">07 / İMAR &amp; HUKUK</span>
+              </div>
+              <h3 class="text-2xl font-serif text-white mb-3 group-hover:text-[#C5A059] transition-colors">07. İmar Affı ve Zemin Tespit Tutanağı</h3>
+              <p class="text-xs text-[#A1A1AA] leading-relaxed mb-4">
+                Mevcut taşınmazların imar mevzuatı ve Yapı Kayıt Belgesi kapsamındaki durum değerlendirmeleri, LİHKAB ve Kadastro onaylı resmi zemin tespit tutanaklarının tanzimi, cins değişikliği ve kat mülkiyeti işlemleri.
+              </p>
+              <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm bg-[#C5A059]/10 border border-[#C5A059]/30 text-[#C5A059] text-xs font-mono">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Lisanslı Harita &amp; Kadastro Mevzuat Desteği</span>
+              </div>
+            </div>
+            <div class="border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8 flex flex-col justify-between h-full">
+              <ul class="text-xs text-[#E4E4E7] space-y-2.5 font-mono mb-6">
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> LİHKAB &amp; Kadastro Onaylı Zemin Tespit Tutanağı Tanzimi</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Yapı Kayıt Belgesi Güncelleme &amp; İmar Danışmanlığı</li>
+                <li class="flex items-center gap-2"><i class="fa-solid fa-check text-[#C5A059] text-[10px]"></i> Cins Değişikliği &amp; Kat Mülkiyetine Geçiş Takibi</li>
+              </ul>
+              <div class="pt-4 border-t border-white/5 flex items-center justify-between">
+                <span class="text-[10px] uppercase font-mono tracking-wider text-[#71717A]">Yasal Tescil Süreçleri</span>
+                <button onclick="requestServiceAppointment('İmar Affı ve Zemin Tespit Tutanağı', 'imar-affi-zemin')" class="inline-flex items-center gap-1.5 text-xs text-[#C5A059] hover:text-white transition-colors cursor-pointer font-medium">
+                  <span>Danışmanlık Randevusu Al</span>
+                  <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
 
         <!-- Signboard Special Service: Müteahhitlik & Arsa Takası -->
@@ -717,9 +875,9 @@
                 Plan, Proje, Mühendislik, Müteahhitlik, Danışmanlık ve İç Mimarlık alanlarında arsanıza değer katan özel takas ve geliştirme modelleri sunuyoruz.
               </p>
             </div>
-            <a href="#contact" data-page="contact" class="nav-link px-6 py-3.5 bg-[#C5A059] hover:bg-[#D4AF37] text-black text-xs uppercase tracking-[0.2em] font-semibold shrink-0 transition-all shadow-[0_0_25px_rgba(197,160,89,0.3)]">
+            <button onclick="requestServiceAppointment('Mimari Proje Karşılığı Arsa Takası', 'land-exchange')" class="px-6 py-3.5 bg-[#C5A059] hover:bg-[#D4AF37] text-black text-xs uppercase tracking-[0.2em] font-semibold shrink-0 transition-all shadow-[0_0_25px_rgba(197,160,89,0.3)] cursor-pointer">
               Takas &amp; Proje Danışmanlığı Al <i class="fa-solid fa-arrow-right ml-2 text-[10px]"></i>
-            </a>
+            </button>
           </div>
         </div>
 
@@ -794,6 +952,12 @@
 
           <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
             
+            <!-- Anti-Spam Bot Honeypot Field -->
+            <div class="hidden" aria-hidden="true" style="display:none !important; position:absolute; left:-9999px;">
+              <label for="form-website-hp">Web Adresiniz (Spam Koruması İçin Boş Bırakınız)</label>
+              <input id="form-website-hp" type="text" name="website_hp" tabindex="-1" autocomplete="off" />
+            </div>
+
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
                 <label class="block text-[11px] uppercase tracking-wider text-[#A1A1AA] mb-2 font-mono">Adınız Soyadınız *</label>
@@ -811,14 +975,18 @@
                 <input id="form-phone" type="tel" required placeholder="0538 371 84 32" class="w-full bg-[#1A1A20] border border-white/10 focus:border-[#C5A059] px-4 py-3 text-base md:text-xs text-white rounded-sm focus:outline-none transition-colors" />
               </div>
               <div>
-                <label class="block text-[11px] uppercase tracking-wider text-[#A1A1AA] mb-2 font-mono">Proje Tipi *</label>
+                <label class="block text-[11px] uppercase tracking-wider text-[#A1A1AA] mb-2 font-mono">Hizmet / Proje Tipi *</label>
                 <select id="form-service" class="w-full bg-[#1A1A20] border border-white/10 focus:border-[#C5A059] px-4 py-3 text-base md:text-xs text-white rounded-sm focus:outline-none transition-colors">
+                  <option value="ruhsat">Mimari Proje Ruhsatlandırma</option>
+                  <option value="mimarlik-ic-mimarlik">Mimarlık ve İç Mimarlık Hizmetleri</option>
+                  <option value="ic-mekan-tadilat">İç Mekan Tasarımları ve Tadilat Projeleri</option>
+                  <option value="3d-gorsellestirme">3 Boyutlu Görselleştirme Uzmanlığı</option>
+                  <option value="harita-muhendisligi">Harita Mühendisliği ve Arazi Ölçüm Hizmeti</option>
+                  <option value="plankote-halihazir">Plankote ve Halihazır Harita Yapımı</option>
+                  <option value="imar-affi-zemin">İmar Affı ve Zemin Tespit Tutanağı</option>
                   <option value="land-exchange">Mimari Proje Karşılığı Arsa Takası</option>
-                  <option value="contracting">Plan - Proje &amp; Müteahhitlik</option>
-                  <option value="villa">Lüks Konut / Villa Projesi</option>
-                  <option value="aframe">A-Frame Kır &amp; Dağ Evi</option>
-                  <option value="commercial">Ticari Yapı &amp; Rezidans</option>
                   <option value="energy">Enerji Kimlik Belgesi (EKB) Danışmanlığı</option>
+                  <option value="contracting">Plan - Proje &amp; Müteahhitlik</option>
                   <option value="other">Diğer / Mimari Danışmanlık</option>
                 </select>
               </div>
@@ -872,7 +1040,7 @@
     <div class="bg-[#101014] border border-white/10 w-full max-w-6xl max-h-[92vh] overflow-y-auto rounded-sm relative p-5 md:p-8 shadow-2xl">
       
       <!-- Close Button -->
-      <button onclick="closeProjectModal()" class="absolute top-5 right-5 z-20 text-[#A1A1AA] hover:text-white text-xl focus:outline-none w-8 h-8 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors">
+      <button onclick="closeProjectModal()" class="absolute top-5 right-5 z-20 text-[#A1A1AA] hover:text-white text-xl focus:outline-none w-10 h-10 rounded-full bg-white/5 hover:bg-white/10 flex items-center justify-center transition-colors" aria-label="Kapat">
         <i class="fa-solid fa-xmark"></i>
       </button>
 
@@ -907,14 +1075,7 @@
     </div>
   </footer>
 
-  <!-- GSAP & ScrollTrigger CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  
-  <!-- Lenis Smooth Scroll CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-
-  <!-- JS Script -->
-  <script src="script.js"></script>
+  <!-- Main Application Script (Deferred for Instant DOM Ready) -->
+  <script src="script.js" defer></script>
 </body>
 </html>
