@@ -129,6 +129,231 @@ const projectData = {
       { label: 'Tipoloji', value: '3 Katlı Az Yoğunluklu Butik Blok' },
       { label: 'Çevre Düzeni', value: 'Özel Peyzaj, Yürüyüş Yolları ve Açık Otopark' }
     ]
+  },
+  'proje6': {
+    id: 'proje6',
+    title: 'Kavis Hatlı Prestij Rezidansı',
+    subtitle: 'Organik Formlu ve LED Aydınlatmalı Lüks Konut',
+    category: 'Konut & Villa',
+    filterCategory: 'residential',
+    location: 'İzmir, Kemalpaşa',
+    year: '2024',
+    status: 'Ruhsat & Tasarım',
+    cover: 'assets/projects/proje6/img_1.jpg',
+    images: [
+      'assets/projects/proje6/img_1.jpg',
+      'assets/projects/proje6/img_2.jpg',
+      'assets/projects/proje6/img_3.jpg'
+    ],
+    description: 'Yumuşak kavisli teras hatları, cepheyi saran lineer LED aydınlatma bantları ve zemin bahçe entegrasyonu ile modern rezidans anlayışına dinamizm katan prestij konut projesi.',
+    narrative: 'Geleneksel dik açılı mimarinin ötesine geçerek akıcı yatay hatlar sunan yapı, geniş cam cepheleri ve ferah balkon derinlikleriyle sakinlerine heykelsi bir yaşam alanı sunar.',
+    details: [
+      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Tasarım Dili', value: 'Organik Kavisli Hatlar & Dinamik Formlar' },
+      { label: 'Cephe Karakteri', value: 'Entegre Lineer LED Aydınlatma & Geniş Camlar' },
+      { label: 'Yaşam Standartları', value: 'Geniş Seyir Terasları ve Özel Peyzaj Alanı' }
+    ]
+  },
+  'proje7': {
+    id: 'proje7',
+    title: 'Modern Mutfak & Yaşam Alanı',
+    subtitle: 'Minimalist Çizgili İç Mekan & Ada Tezgah Renovasyonu',
+    category: 'İç Mimari & Tasarım',
+    filterCategory: 'interior',
+    location: 'İzmir, Bornova',
+    year: '2024',
+    status: 'Tamamlandı / Uygulama',
+    cover: 'assets/projects/proje7/img_1.jpg',
+    images: [
+      'assets/projects/proje7/img_1.jpg',
+      'assets/projects/proje7/img_2.jpg'
+    ],
+    description: 'Antrasit ve sıcak ahşap dokuların uyumuyla şekillenen, gizli LED aydınlatmalı dolap sistemleri, entegre ada barı ve ergonomik sirkülasyon planıyla hayata geçirilen modern mutfak tasarımı.',
+    narrative: 'İç mekan hacmini maksimum verimle değerlendiren bu renovasyon çalışmasında depolama alanları mimari hatların içine gizlenmiş, yemek hazırlama ve sosyalleşme alanları estetik bir dengeyle kurgulanmıştır.',
+    details: [
+      { label: 'İç Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Uygulama Alanı', value: 'Açık Konsept Mutfak & Yemek Alanı' },
+      { label: 'Malzeme Paleti', value: 'Mat Antrasit Lake, Doğal Meşe Kaplama, Kompakt Tezgah' },
+      { label: 'Aydınlatma', value: 'Gizli Lineer LED Bantlar & Odak Sarkıtlar' }
+    ]
+  },
+  'proje8': {
+    id: 'proje8',
+    title: 'Galeri Tavanlı Loft Doğa Villası',
+    subtitle: 'Tuğla Şömineli ve Asma Katlı Çağdaş Malikane',
+    category: 'Konut & Villa',
+    filterCategory: 'residential',
+    location: 'İzmir, Kemalpaşa / Ulucak',
+    year: '2024',
+    status: 'Tasarım & Uygulama',
+    cover: 'assets/projects/proje8/img_1.jpg',
+    images: [
+      'assets/projects/proje8/img_1.jpg',
+      'assets/projects/proje8/img_2.jpg',
+      'assets/projects/proje8/img_3.jpg',
+      'assets/projects/proje8/img_4.jpg',
+      'assets/projects/proje8/img_5.jpg'
+    ],
+    description: 'Çift kat galeri boşluklu yüksek tavanlı salonu, heykelsi tuğla şömine bacası, şeffaf asma katı ve bahçe verandasıyla lüks yaşam standardını doğayla harmanlayan müstakil villa projesi.',
+    narrative: 'Geniş cam cephelerinden süzülen doğal gün ışığı, açık ahşap basamaklı çelik merdiven ve sıcak tuğla dokusu mekanın kalbini oluştururken; dış cephedeki ahşap lamel detayları yapıyı çevre peyzajla bütünleştirir.',
+    details: [
+      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Mekan Kurgusu', value: 'Çift Kat Galeri Boşluğu & Asma Kat Yaşamı' },
+      { label: 'Öne Çıkan Detay', value: 'Doğal Tuğla Kaplama Şömine & Açık Çelik Merdiven' },
+      { label: 'Dış Mekan', value: 'Geniş Ahşap Veranda, Üst Kat Teras & Özel Bahçe' }
+    ]
+  },
+  'proje9': {
+    id: 'proje9',
+    title: 'İskandinav Çizgili Kır Villası',
+    subtitle: 'Beşik Çatı Formlu Çağdaş Doğa Evi',
+    category: 'Konut & Villa',
+    filterCategory: 'residential',
+    location: 'İzmir, Urla',
+    year: '2024',
+    status: 'Projelendirildi',
+    cover: 'assets/projects/proje9/img_1.jpg',
+    images: [
+      'assets/projects/proje9/img_1.jpg',
+      'assets/projects/proje9/img_2.jpg',
+      'assets/projects/proje9/img_3.jpg',
+      'assets/projects/proje9/img_4.jpg',
+      'assets/projects/proje9/img_5.jpg'
+    ],
+    description: 'Sade beşik çatı silueti, dikey ahşap cephe kaplamaları, taş şömine kulesi ve geniş bahçe verandası ile İskandinav mimari disiplinini Ege coğrafyasına uyarlayan seçkin kır konutu.',
+    narrative: 'Minimalist hatlar ve doğal dokuların dengesiyle şekillenen konut; manzaraya açılan tabandan tavana cam yüzeyleri, korunaklı giriş saçakları ve yüksek enerji verimliliği sağlayan kabuk tasarımıyla dikkat çeker.',
+    details: [
+      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Çatı & Form', value: 'Modern Beşik Çatı & Yüksek Tavan Kurgusu' },
+      { label: 'Dış Cephe', value: 'Doğal Ahşap Lambriler & Taş Şömine Bacası' },
+      { label: 'Peyzaj & Yaşam', value: 'Doğal Bahçe Terası, Özel Otopark & Veranda' }
+    ]
+  },
+  'proje10': {
+    id: 'proje10',
+    title: 'Çağdaş Bahçeli Müstakil Malikane',
+    subtitle: 'Tuğla & Ahşap Cepheli İki Katlı Lüks Villa',
+    category: 'Konut & Villa',
+    filterCategory: 'residential',
+    location: 'İzmir, Torbalı',
+    year: '2024',
+    status: 'Uygulama & İnşaat',
+    cover: 'assets/projects/proje10/img_1.jpg',
+    images: [
+      'assets/projects/proje10/img_1.jpg',
+      'assets/projects/proje10/img_2.jpg',
+      'assets/projects/proje10/img_3.jpg',
+      'assets/projects/proje10/img_4.jpg',
+      'assets/projects/proje10/img_5.jpg'
+    ],
+    description: 'Sıcak klinker tuğla kolonları, dikey ahşap giydirme cephesi, geniş gölgelikli zemin terası ve ferah üst kat balkonuyla müstakil yaşam konseptini yeniden tanımlayan iki katlı çağdaş villa.',
+    narrative: 'İç mekanda açık plan ada mutfak ve dinlendirici kütüphaneli salon kurgusuyla bütünleşen tasarım, salonun bahçe verandasıyla birleştiği geniş cam açıklıklar sayesinde dört mevsim bahçe keyfi sunar.',
+    details: [
+      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Cephe Malzemeleri', value: 'Klinker Pres Tuğla, Ahşap Kaplama, Taş Doku' },
+      { label: 'İç Mekan Entegrasyonu', value: 'Açık Mutfak, Ada Bar, Salon & Yemek Alanı' },
+      { label: 'Konfor Standartları', value: 'Çift Teras, Gölgelikli Veranda ve Geniş Peyzaj' }
+    ]
+  },
+  'proje11': {
+    id: 'proje11',
+    title: 'Modüler Hafif Çelik Konut & Bungalov',
+    subtitle: 'Depreme Dayanıklı Çelik Karkas Dubleks ve Loft Bungalov',
+    category: 'Konut & Villa',
+    filterCategory: 'residential',
+    location: 'İzmir / Ege Bölgesi',
+    year: '2024',
+    status: 'Tip Proje & Ruhsat',
+    cover: 'assets/projects/proje11/img_1.jpg',
+    images: [
+      'assets/projects/proje11/img_1.jpg',
+      'assets/projects/proje11/img_2.jpg',
+      'assets/projects/proje11/img_3.jpg',
+      'assets/projects/proje11/img_4.jpg'
+    ],
+    description: 'Yüksek mühendislik standartlarıyla üretilen hafif çelik taşıyıcı sistem; hem beşik çatılı loft bungalov hem de geniş aileler için planlanan dubleks konut seçenekleriyle güvenli ve çağdaş çözümler sunar.',
+    narrative: 'Mimari plan şemaları, kat paftaları ve 3D cephe tasarımları Tuğçe Mimarlık tarafından titizlikle hazırlanan modüler çelik projeler, hızlı imalat süresi ve üst düzey ısı yalıtımı avantajı sağlar.',
+    details: [
+      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Taşıyıcı Sistem', value: 'Hafif Çelik Karkas Konstrüksiyon' },
+      { label: 'Deprem & Güvenlik', value: 'Yüksek Sismik Direnç & A1 Sınıfı Yanmaz Yalıtım' },
+      { label: 'Tipolojiler', value: 'Loft Asma Katlı Bungalov & Çift Katlı Dubleks Konut' }
+    ]
+  },
+  'proje12': {
+    id: 'proje12',
+    title: 'Doğal Ahşap Detaylı Butik Rezidans',
+    subtitle: '4 Katlı Prestijli Apartman ve Konut Bloğu',
+    category: 'Konut & Villa',
+    filterCategory: 'residential',
+    location: 'İzmir, Kemalpaşa',
+    year: '2024',
+    status: 'Tamamlandı / İskan',
+    cover: 'assets/projects/proje12/img_1.jpg',
+    images: [
+      'assets/projects/proje12/img_1.jpg',
+      'assets/projects/proje12/img_2.jpg',
+      'assets/projects/proje12/img_3.jpg',
+      'assets/projects/proje12/img_4.jpg'
+    ],
+    description: 'Dikey masif ahşap lameller, şeffaf cam balkon korkulukları, beyaz konsol çerçeveler ve gece cephe aydınlatmasıyla Kemalpaşa siluetine değer katan 4 katlı seçkin konut kompleksi.',
+    narrative: 'Köşe parsel avantajını kütle hareketleriyle vurgulayan yapı; her bağımsız bölüm için ferah balkon alanları, zemin kat otopark çözümü ve çevre peyzajıyla konforlu bir şehir yaşamı sağlar.',
+    details: [
+      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Kat Adedi & Tipoloji', value: '4 Katlı Butik Rezidans Bloğu' },
+      { label: 'Güneş Kırıcı Sistem', value: 'Dikey Ahşap Lamel Elemanları' },
+      { label: 'Otopark & Çevre', value: 'Açık Otopark, Taş İstinat Duvarı ve Özel Peyzaj' }
+    ]
+  },
+  'proje13': {
+    id: 'proje13',
+    title: 'İskandinav Çizgili Salon & Yaşam Alanı',
+    subtitle: 'Dingin Renk Paleti ve Fonksiyonel Ada Tezgah Konsepti',
+    category: 'İç Mimari & Tasarım',
+    filterCategory: 'interior',
+    location: 'İzmir, Kemalpaşa',
+    year: '2024',
+    status: 'Tamamlandı',
+    cover: 'assets/projects/proje13/img_1.jpg',
+    images: [
+      'assets/projects/proje13/img_1.jpg',
+      'assets/projects/proje13/img_2.jpg',
+      'assets/projects/proje13/img_3.jpg',
+      'assets/projects/proje13/img_4.jpg',
+      'assets/projects/proje13/img_5.jpg'
+    ],
+    description: 'Açık konsept mutfak ile salonu ayıran ahşap kahvaltı barı, modern TV ve depolama ünitesi, antrasit keten perdeler ve açık meşe detaylarla tasarlanan huzurlu iç mekan projesi.',
+    narrative: 'Dar alanlarda ferahlık hissini artırmak amacıyla monokrom gri tonlar, doğal ahşap sıcaklığı ve sarkıt küre aydınlatmalar bir araya getirilerek dengeli bir iç mimari atmosfer yaratılmıştır.',
+    details: [
+      { label: 'İç Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'İç Mimari Tarzı', value: 'Modern İskandinav & Minimalist' },
+      { label: 'Özel İmalatlar', value: 'Ada Bar Masası, Özel Kitaplık & TV Ünitesi' },
+      { label: 'Aydınlatma Kurgusu', value: 'Lineer Bar Sarkıtlar & Gizli Tavan Havuzları' }
+    ]
+  },
+  'proje14': {
+    id: 'proje14',
+    title: 'Geniş Verandalı Tek Katlı Kır Konutu',
+    subtitle: 'Doğal Ahşap Cepheli Modern Bungalov Yaşamı',
+    category: 'Konut & Villa',
+    filterCategory: 'residential',
+    location: 'İzmir, Kemalpaşa',
+    year: '2024',
+    status: 'Projelendirildi',
+    cover: 'assets/projects/proje14/img_1.jpg',
+    images: [
+      'assets/projects/proje14/img_1.jpg',
+      'assets/projects/proje14/img_2.jpg',
+      'assets/projects/proje14/img_3.jpg'
+    ],
+    description: 'Yatay ahşap cephe kaplamaları, antrasit metal paneller, geniş kolonadlı veranda ve bahçeyle kesintisiz hemzemin ilişki kuran çağdaş tek katlı müstakil kır konutu projesi.',
+    narrative: 'Merdivensiz, akıcı ve tek katlı yaşam konforunu ön planda tutan tasarım; geniş saçakları sayesinde doğrudan güneş ışığından korunan ferah terasıyla doğayla baş başa bir yaşam sunar.',
+    details: [
+      { label: 'Baş Mimar', value: 'Mimar Tuğçe POLAT' },
+      { label: 'Konut Tipi', value: 'Tek Katlı Hemzemin Müstakil Bungalov' },
+      { label: 'Cephe Karakteri', value: 'Yatay Ahşap Kaplama & Antrasit Doğramalar' },
+      { label: 'Teras & Veranda', value: 'Geniş Kolonadlı Bahçe Terası ve Dinlenme Alanı' }
+    ]
   }
 };
 
